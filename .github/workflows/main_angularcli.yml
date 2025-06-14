@@ -8,6 +8,11 @@ on:
     branches:
     - main
   workflow_dispatch:
+  
+env:
+  AZURE_WEBAPP_NAME: your-app-name
+  AZURE_WEBAPP_PACKAGE_PATH: './azure-angular-app'
+  NODE_VERSION: '22.x'  
 
 jobs:
   build-and-deploy:
