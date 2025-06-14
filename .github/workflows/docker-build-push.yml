@@ -1,0 +1,30 @@
+    name: Docker Build and Push to ACR
+
+    on:
+      push:
+        branches:
+          - main
+
+    jobs:
+      build-and-push:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout code
+            uses: actions/checkout@v3
+
+          - name: Login to Azure
+            uses: azure/login@v2
+            with:
+              client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_928F5690260B424B8A4DED0A0D759D5A }}
+              tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_75292DBB341D41258B543337E8A566EB }}
+              subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_14EFF822EB5B4B1F8056D02EE3348103 }}
+
+          - name: Build and Push Docker Image
+            uses: mr-smithers-excellent/docker-build-push@v6
+            with:
+              image: ${{ secrets.ACR_LOGIN_SERVER }}/${{ github.repository }}
+              tags: latest
+              registry: ${{ secrets.ACR_LOGIN_SERVER }}
+              username: ${{ secrets.ACR_USERNAME }}
+              password: ${{ secrets.ACR_PASSWORD }}
+              dockerfile: Dockerfile
