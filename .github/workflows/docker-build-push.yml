@@ -13,11 +13,12 @@
           - name: Checkout code
             uses: actions/checkout@v3
 
-          - name: Azure Login
-            uses: azure/login@v1
+          - name: Azure login
+            uses: azure/login@v2
             with:
-              creds: ${{ secrets.AZURE_CREDENTIALS }}
-
+              client-id: ${{ secrets.AZURE_CLIENT_ID }}
+              subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+              
           - name: Build and Push Docker Image
             uses: mr-smithers-excellent/docker-build-push@v6
             with:
