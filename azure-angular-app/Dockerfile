@@ -3,7 +3,7 @@ FROM node:22-lts as builder
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
-COPY ..
+COPY . .
 RUN npm run build
 
 #Stage 2 : serve
