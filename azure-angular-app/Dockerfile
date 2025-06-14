@@ -1,6 +1,6 @@
 #Stage 1 : build
 FROM node:22 as builder
-WORKDIR ./azure-angular-app
+WORKDIR /azure-angular-app
 COPY package*.json ./
 RUN npm install
 COPY . .
