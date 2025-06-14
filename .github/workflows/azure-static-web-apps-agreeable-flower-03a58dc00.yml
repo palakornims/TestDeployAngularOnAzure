@@ -38,8 +38,5 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_AGREEABLE_FLOWER_03A58DC00 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          node-version: 22.x
-          app_location: "./azure-angular-app"
+          app_location: "/"
           output_location: "azure-angular-app/dist/accounts-balance-viewer"
-        env:
-          STATIC_WEB_APP_RUNTIME_VERSION: '22.x'
