@@ -32,4 +32,4 @@
               registry: ${{ secrets.ACR_LOGIN_SERVER }}
               username: ${{ secrets.ACR_USERNAME }}
               password: ${{ secrets.ACR_PASSWORD }}
-              dockerfile: Dockerfile
+              dockerfile: ./azure-angular-app/Dockerfile
